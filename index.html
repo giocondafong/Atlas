@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESA Mission Control - Agency Atlas</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="h-screen w-full flex flex-col items-center overflow-hidden">
+    
+    <!-- Header -->
+    <header class="w-full glass-panel py-4 px-8 flex items-center justify-between z-10 shadow-lg">
+        <div class="flex items-center space-x-3">
+            <svg class="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm4.707-11.707L11 14.586V17h2v-2.586l5.707-5.707-2-2zM9 16H7v2h2v-2z"/></svg>
+            <h1 class="text-2xl font-bold tracking-widest text-white uppercase">Mission Control <span class="text-blue-500">Atlas</span></h1>
+        </div>
+        <div class="text-sm tracking-widest text-gray-400 font-mono" id="clock">
+            00:00:00 UTC
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 w-full flex p-6 gap-6 h-full overflow-hidden">
+        
+        <!-- Table Section -->
+        <section class="w-1/2 h-full flex flex-col glass-panel rounded-lg shadow-xl overflow-hidden p-4">
+            <h2 class="text-lg font-semibold text-white mb-4 uppercase tracking-wider border-b border-gray-700 pb-2">ESA Member Agencies</h2>
+            <div class="flex-1 overflow-auto rounded border border-gray-700">
+                <table class="w-full text-left text-sm whitespace-nowrap">
+                    <thead class="uppercase bg-gray-800 text-gray-300 sticky top-0 z-10">
+                        <tr>
+                            <th class="px-4 py-3 cursor-pointer hover:text-white">Agency</th>
+                            <th class="px-4 py-3 cursor-pointer hover:text-white">Country</th>
+                            <th class="px-4 py-3 cursor-pointer hover:text-white">City</th>
+                            <th class="px-4 py-3 text-right">Coordinates</th>
+                        </tr>
+                    </thead>
+                    <tbody id="agency-table-body" class="font-mono text-xs divide-y divide-gray-800">
+                        <!-- Intentionally left blank, JS populates -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="w-1/2 h-full glass-panel rounded-lg shadow-xl p-2 relative">
+            <div id="map"></div>
+            <!-- Decorative corner elements -->
+            <div class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-blue-500 z-[400] pointer-events-none"></div>
+            <div class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-blue-500 z-[400] pointer-events-none"></div>
+            <div class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-blue-500 z-[400] pointer-events-none"></div>
+            <div class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-blue-500 z-[400] pointer-events-none"></div>
+        </section>
+
+    </main>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="app.js"></script>
+</body>
+</html>
